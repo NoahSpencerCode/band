@@ -52,4 +52,12 @@ describe('Band and Musician Models', () => {
         expect(musicians.length).toBe(2); //we've added two musicians, so the length should be two
         expect(musicians[0] instanceof Musician).toBeTruthy; //checks that the value at index 0 of the list - a musician object, is in fact a musician object
       });
+
+    test('Eager loading', async () => {
+        Band.findAll({
+            include: [
+              { model: Musician}
+            ]
+          });
+    });
 })
